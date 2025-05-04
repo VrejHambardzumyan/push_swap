@@ -43,7 +43,7 @@ t_node *return_cheapest(t_node *stack);
 t_node *find_min(t_node *stack);
 bool stack_sorted(t_node *stack);
 void add_node(t_node **stack, int value);
-void create_stack(t_node **stack, char **arr, bool flag);
+void finish_rotate(t_node **stack, t_node *top_node, char stack_name);
 int stack_length(t_node *stack);
 
 //commands

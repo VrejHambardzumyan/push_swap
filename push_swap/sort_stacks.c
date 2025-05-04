@@ -16,7 +16,7 @@ static void reverse_rotate_both(t_node **stack_a, t_node **stack_b, t_node *chea
 	set_curr_position(*stack_b);
 }
 
-static void finish_rotate(t_node **stack, t_node *top_node, char stack_name)
+void finish_rotate(t_node **stack, t_node *top_node, char stack_name)
 {
 	while (*stack != top_node)
 	{

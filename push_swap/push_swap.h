@@ -8,67 +8,63 @@
 #include <../Libft/libft.h>
 #include <../Printf/ft_printf.h>
 
-
 typedef struct s_node
 {
     int value;
-    int index;
+    int curr_position;
+    int final_index;
     int push_cost;
-    bool median;
+    bool above_median;
     bool  cheapest;
 
     struct s_node   *target_node;
     struct s_node   *next;
+    struct s_node   *prev;
 }   t_node;
 
+//argument handling
+char *merge_arg(int argc, char *argv[]);
+
 //error handling
+void free_arr(char *argv[]);
+void free_stack(t_node **stack);
+void free_error(t_node **stack,char *argv[], bool flag);
+int error_arg(char *arg);
+int error_duplicate(t_node *stack, int value);
+
+//handling stacks(sort_stacks_init) mi hate stack_init-ic
+void create_stack(t_node **stack, char **arr, bool flag);
+void set_curr_positon(t_node *stack);
+void init_nodes(t_node *stack_a, t_node *stack_b);  
 
 //stack initialization
+t_node *find_the_tail(t_node **stack);
+t_node *return_cheapest(t_node *stack);
+t_node *find_min(t_node *stack);
+bool stack_sorted(t_node *stack);
+void add_node(t_node **stack, int value);
+void create_stack(t_node **stack, char **arr, bool flag);
+int stack_length(t_node *stack);
 
-//node initialization
+//commands
+void ra(t_node **stack_a, bool print);
+void rb(t_node **stack_b, bool print);
+void rr(t_node **stack_a, t_node **stack_b, bool print);
 
-//stack operations
+void rra(t_node **stack_a, bool print);
+void rrb(t_node **stack_b, bool print);
+void rrr(t_node **stack_a, t_node **stack_b, bool print);
 
-//command operations
+void sb(t_node **stack_b, bool print);
+void sa(t_node **stack_a, bool print);
+void ss(t_node **stack_a, t_node **stack_b, bool print);
+
+void pa(t_node **stack_a, t_node **stack_b, bool print);
+void pb(t_node **stack_a, t_node **stack_b, bool print);
 
 //algorithm 
-
-
-
-
-
-
-
-
-
-
-// int		ft_printf(const char *s, ...);
-// int		ft_putchar(const char c);
-// int		ft_putstr(const char *s);
-// int		ft_signed(long long s);
-// int		ft_convcheck(char s);
-// int		ft_putnbr_base(unsigned int num, const char *s, unsigned int base);
-// int		ft_funcfetch(va_list args, const char *s);
-// int		ft_putptr(unsigned long long num, char *s, size_t base);
-
-// size_t	ft_strlen(const char *s);
-
-// size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
-
-// int		ft_strncmp(const char *s1, const char *s2, size_t n);
-
-// char	*ft_strdup(const char *s1);
-// int		ft_atoi(const char *str);
-// char	*ft_substr(char const *s, unsigned int start, size_t len);
-// char	*ft_strjoin(char const *s1, char const *s2);
-
-// char	**ft_split(char const *s, char c);
-// char	*ft_itoa(int n);
-
-// t_list	*ft_lstnew(void *content);
-
-// int		ft_lstsize(t_list *lst);
-// t_list	*ft_lstlast(t_list *lst);
-// void	ft_lstadd_back(t_list **lst, t_list *new);
+void sort_tree(t_node **stack);
+void handle_five(t_node **stack_a, t_node **stack_b);
+void sort_stacks(t_node **stack_a, t_node **stack_b);
  
 #endif

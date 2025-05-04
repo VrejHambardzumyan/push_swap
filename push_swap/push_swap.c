@@ -12,11 +12,11 @@
 
 #include "push_swap.h"
 
-
 int main(int argc, char *argv[])
 {
 	t_node *stack_a;
     t_node *stack_b;
+    bool flag;
 
     stack_a = NULL;
     stack_b = NULL;
@@ -24,10 +24,12 @@ int main(int argc, char *argv[])
     char **arr = NULL;
     if (argc < 2 || (argc == 2 && argv[1][0] == '\0'))
         return (1);
-    else if (argc == 2)
-        arr = ft_split(argv[1], ' ');
-
-    creat_stack(&stack_a,arr);
+    else {
+        arr = ft_split(merge_arg(argc, argv), " ");
+    }
+    flag = true;
+    //           ste kam arr, kam arr+1
+    creat_stack(&stack_a, arr, flag);
     if (!stack_sorted(stack_a))
     {
         if(stack_length(stack_a) == 2)
@@ -35,13 +37,13 @@ int main(int argc, char *argv[])
         else if(stack_length(stack_a) == 3)
             sort_three(&stack_a);
         else 
-            sort_stacks(&stack_a, &stack_b);
+            sort_stacks(&stack_a, &stack_b);//push_swap
     }
 
-    free_stack(stack_a);
+    free_stack(&stack_a);
 
 	/*
-	1)pahum enq cycling linked list,vor hesht lini rra/rrb anely
+	1)pahum enq double linked list,vor hesht lini rra/rrb anely
 	
 	2)pti split-ov parsing arvi argv[1]-y; amen tiv hat hat lcvi 
 	stacki noderi mej;

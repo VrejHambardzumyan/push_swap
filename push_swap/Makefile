@@ -1,16 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: vhambard <vhambard@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/04/23 16:36:30 by vhambard          #+#    #+#              #
-#    Updated: 2025/04/23 17:31:58 by vhambard         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-
 NAME = push_swap.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -18,9 +5,12 @@ AR = ar -rcs
 
 HEADER = push_swap.h
 
-MANDATORY = push_swap.a
+MANDATORY = argv_handle.c error_free.c push_swap.c push.c reverse_rotate.c \
+				rotate.c sort_stacks_initialisation.c sort_stacks.c\
+				sort_three.c stack_initialisation.c stacks_utils.c\
+				swap.c\
 
-BONUS = 
+BONUS = //////////////////
 
 OBJS = $(MANDATORY:.c=.o)
 BONUS_OBJS = $(BONUS:.c=.o)

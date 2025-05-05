@@ -1,0 +1,63 @@
+# CC = cc
+
+# CFLAGS = -Wall -Wextra -Werror
+
+# SRCS = ft_atoi.c ft_isalpha.c ft_isdigit.c  ft_strlen.c ft_strncmp.c ft_strjoin.c \
+# 		ft_split.c ft_lstadd_back.c ft_lstlast.c ft_lstnew.c ft_lstsize.c 
+
+# NAME = libft.a
+
+# OBJS = $(SRCS:.c=.o)
+
+# all: $(NAME)
+
+# $(NAME): $(OBJS)
+# 	ar -rcs $(NAME) $(OBJS)
+
+# .o: .c
+# 	$(CC) $(CFLAGS) -I $(INCS) -c $< -o $@
+
+# clean:
+# 	rm -f $(OBJS)
+
+# fclean: clean 
+# 	rm -f $(NAME)
+
+# re: fclean all
+
+# .PHONY: all fclean clean re
+
+
+NAME = libft.a
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+AR = ar -rcs
+
+HEADER = libft.h
+
+MANDATORY =  ft_atoi.c  ft_isdigit.c  ft_strlen.c  ft_strjoin.c \
+ 		ft_split.c ft_lstadd_back.c ft_lstlast.c ft_lstnew.c ft_lstsize.c \
+
+
+
+OBJS = $(MANDATORY:.c=.o)
+
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(AR) $(NAME) $(OBJS)
+
+
+%.o: %.c
+	$(CC) $(CFLAGS) -I$(HEADER) -c $< -o $@
+
+clean:
+	rm -rf $(OBJS) 
+
+fclean: clean
+	rm -rf $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re 

@@ -1,36 +1,35 @@
-NAME = push_swap.a
+NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
-AR = ar -rcs
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=address -g
 
-HEADER = push_swap.h
+LIBFT_DIR = Libft
+LIBFT_LIB = $(LIBFT_DIR)/libft.a
+HEADER_DIR = includes
 
-MANDATORY = argv_handle.c error_free.c push_swap.c push.c reverse_rotate.c \
-				rotate.c sort_stacks_initialisation.c sort_stacks.c\
-				sort_three.c stack_initialisation.c stacks_utils.c\
-				swap.c\
-
-BONUS = //////////////////
+MANDATORY = src/argv_handle.c src/error_free.c src/push_swap.c src/push.c src/reverse_rotate.c \
+			src/rotate.c src/sort_stacks_initialisation.c src/sort_stacks.c \
+			src/sort_three.c src/stack_initialisation.c src/stack_utils.c src/swap.c
 
 OBJS = $(MANDATORY:.c=.o)
-BONUS_OBJS = $(BONUS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
+$(LIBFT_LIB):
+	make -C $(LIBFT_DIR)
 
-bonus: $(OBJS) $(BONUS_OBJS)
-	$(AR) $(NAME) $(BONUS_OBJS)
+$(NAME): $(OBJS) $(LIBFT_LIB)
+	$(CC) $(CFLAGS) -I$(HEADER_DIR) -I$(LIBFT_DIR) $(OBJS) $(LIBFT_LIB) -o $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -I$(HEADER) -c $< -o $@
+	$(CC) $(CFLAGS) -I$(HEADER_DIR) -I$(LIBFT_DIR) -c $< -o $@
 
 clean:
-	rm -rf $(OBJS) $(BONUS_OBJS)
+	rm -f $(OBJS)
+	make -C $(LIBFT_DIR) clean
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -f $(NAME)
+	make -C $(LIBFT_DIR) fclean
 
 re: fclean all
 

@@ -6,11 +6,11 @@
 /*   By: vhambard <vhambard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 20:29:34 by vhambard          #+#    #+#             */
-/*   Updated: 2025/04/23 19:24:00 by vhambard         ###   ########.fr       */
+/*   Updated: 2025/05/05 20:12:13 by vhambard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {

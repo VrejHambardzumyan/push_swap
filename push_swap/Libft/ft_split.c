@@ -6,11 +6,11 @@
 /*   By: vhambard <vhambard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 20:07:52 by vhambard          #+#    #+#             */
-/*   Updated: 2025/04/23 19:22:57 by vhambard         ###   ########.fr       */
+/*   Updated: 2025/05/05 20:11:28 by vhambard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
 static char	*getword(char const *s, char c)
 {

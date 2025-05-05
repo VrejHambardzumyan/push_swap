@@ -6,11 +6,12 @@
 /*   By: vhambard <vhambard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 16:43:40 by vhambard          #+#    #+#             */
-/*   Updated: 2025/04/23 19:23:05 by vhambard         ###   ########.fr       */
+/*   Updated: 2025/05/05 20:11:39 by vhambard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
+
 
 char	*ft_strdup(const char *s1)
 {

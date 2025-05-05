@@ -6,11 +6,11 @@
 /*   By: vhambard <vhambard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 19:21:59 by vhambard          #+#    #+#             */
-/*   Updated: 2025/04/23 19:23:42 by vhambard         ###   ########.fr       */
+/*   Updated: 2025/05/05 16:40:26 by vhambard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
 int	ft_atoi(const char *str)
 {
@@ -25,7 +25,7 @@ int	ft_atoi(const char *str)
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
-		if (str[i] == '-' )
+		if (str[i] == '-')
 			s = -s;
 		i++;
 	}

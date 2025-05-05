@@ -1,42 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   stack_initialisation.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vhambard <vhambard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 18:20:23 by vhambard          #+#    #+#             */
-/*   Updated: 2025/05/05 20:11:08 by vhambard         ###   ########.fr       */
+/*   Created: 2025/05/05 17:15:08 by vhambard          #+#    #+#             */
+/*   Updated: 2025/05/05 17:15:18 by vhambard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	create_stack(t_node **stack, char **arr, bool flag)
 {
-	size_t	len1;
-	size_t	len2;
-	char	*res;
-	size_t	i;
-	size_t	j;
+	int		i;
+	long	j;
 
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	res = (char *) malloc(len1 + len2 + 1);
 	i = 0;
-	if (res == NULL)
-		return (NULL);
-	while (i < len1)
+	while (arr[i])
 	{
-		res[i] = s1[i];
-		i++;
+		if (error_arg(arr[i]) == 1)
+			free_error(stack, arr, flag);
+		j = (long)ft_atoi(arr[i]);
+		if (j > INT_MAX || j < INT_MIN)
+			free_error(stack, arr, flag);
+		if (error_duplicate(*stack, j) == 1)
+			free_error(stack, arr, flag);
+		add_node(stack, (int)j);
+		++i;
 	}
-	j = 0;
-	while (j < len2)
-	{
-		res[i + j] = s2[j];
-		j++;
-	}
-	res[i + j] = '\0';
-	return (res);
+	if (flag)
+		free_arr(arr);
 }

@@ -6,7 +6,7 @@
 /*   By: vhambard <vhambard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 16:33:29 by vhambard          #+#    #+#             */
-/*   Updated: 2025/06/04 14:19:27 by vhambard         ###   ########.fr       */
+/*   Updated: 2025/06/06 17:32:06 by vhambard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	free_error(t_node **stack, char *argv[], bool flag)
 	if (flag)
 		free_arr(argv);
 	write(2, "Error\n", 6);
-	exit(1);
+	exit (1);
 }
 
 int	error_duplicate(t_node *stack, int value)

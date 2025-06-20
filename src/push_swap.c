@@ -6,12 +6,11 @@
 /*   By: vhambard <vhambard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 16:55:45 by vhambard          #+#    #+#             */
-/*   Updated: 2025/06/03 17:32:59 by vhambard         ###   ########.fr       */
+/*   Updated: 2025/06/20 14:40:21 by vhambard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 static	char	**parse_arguments(int argc, char *argv[])
 {
@@ -49,8 +48,13 @@ int	main(int argc, char *argv[])
 
 	stack_a = NULL;
 	stack_b = NULL;
-	if (argc < 2 || (argc == 2 && argv[1][0] == '\0'))
+	if (argc == 1)
 		return (0);
+	if (argc >= 2 && argv[1][0] == '\0')
+	{
+		write(2, "Error\n", 6);
+		return (1);
+	}
 	arr = parse_arguments(argc, argv);
 	if (!arr)
 		return (1);

@@ -6,16 +6,11 @@
 /*   By: vhambard <vhambard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 17:09:05 by vhambard          #+#    #+#             */
-/*   Updated: 2025/05/05 17:09:18 by vhambard         ###   ########.fr       */
+/*   Updated: 2025/06/06 16:00:11 by vhambard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/*ete taza nod enq kpcnum orinka stack_a in, petqa amenaverjin 
-nody update anenq vor nayi taza kcac nodi vra, te arden mer verjin 
-nody samo saboy nayuma headin, menka heady poxenq klni ok
-*/
 
 static void	swap(t_node **stack)
 {

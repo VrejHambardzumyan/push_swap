@@ -6,7 +6,7 @@
 /*   By: vhambard <vhambard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 16:58:19 by vhambard          #+#    #+#             */
-/*   Updated: 2025/06/04 17:04:24 by vhambard         ###   ########.fr       */
+/*   Updated: 2025/06/20 14:32:19 by vhambard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,46 +24,31 @@ int	calculate_total_length(int argc, char *argv[])
 	return (total_len);
 }
 
-static int	has_mix_sign(const char *str, int start, int end, int *minus_count)
-{
-	char	first;
-	int		i;
-
-	first = 0;
-	i = start;
-	*minus_count = 0;
-	while (i < end && (str[i] == '+' || str[i] == '-'))
-	{
-		if (!first)
-			first = str[i];
-		else if (str[i] != first)
-			return (-1);
-		if (str[i] == '-')
-			(*minus_count)++;
-		i++;
-	}
-	return (i);
-}
-
 static int	parse_and_validate_number(const char *str, int start, int end)
 {
 	int		i;
-	int		minus_count;
+	int		is_negative;
 	long	result;
 
-	minus_count = 0;
+	i = start;
+	is_negative = 0;
 	result = 0;
-	i = has_mix_sign(str, start, end, &minus_count);
-	if (i == -1 || i >= end)
+	if (i < end && (str[i] == '+' || str[i] == '-'))
+	{
+		if (str[i++] == '-')
+			is_negative = 1;
+	}
+	if (i >= end)
 		return (1);
 	while (i < end)
 	{
 		if (!ft_isdigit(str[i]))
 			return (1);
-		result = result * 10 + (str[i++] - '0');
-		if ((minus_count % 2 == 0 && result > INT_MAX)
-			|| (minus_count % 2 == 1 && result > (long)INT_MAX + 1))
+		result = result * 10 + (str[i] - '0');
+		if ((is_negative && result > (long)INT_MAX + 1)
+			|| (!is_negative && result > (long)INT_MAX))
 			return (1);
+		i++;
 	}
 	return (0);
 }

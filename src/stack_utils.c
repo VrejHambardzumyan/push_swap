@@ -6,7 +6,7 @@
 /*   By: vhambard <vhambard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 17:12:46 by vhambard          #+#    #+#             */
-/*   Updated: 2025/06/02 14:48:54 by vhambard         ###   ########.fr       */
+/*   Updated: 2025/06/06 16:00:21 by vhambard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,37 +59,6 @@ t_node	*find_min(t_node *stack)
 	return (min_node);
 }
 
-// void	add_node(t_node **stack, int value)
-// {
-// 	t_node	*new_node;
-// 	t_node	*last_node;
-
-// 	new_node = (t_node *)malloc(sizeof(t_node));
-// 	if (!new_node)
-// 		return ;
-// 	new_node->value = value;
-// 	new_node->curr_position = 0;
-// 	new_node->final_index = 0;
-// 	new_node->push_cost = 0;
-// 	new_node->above_median = false;
-// 	new_node->cheapest = false;
-// 	new_node->target_node = NULL;
-// 	new_node->next = NULL;
-// 	new_node->prev = NULL;
-// 	if (*stack == NULL)
-// 	{
-// 		*stack = new_node;
-// 		new_node->next = NULL;
-// 		return ;
-// 	}
-// 	else
-// 	{
-// 		last_node = find_the_tail(*stack);
-// 		last_node->next = new_node;
-// 		new_node->prev = last_node;
-// 		new_node->next = NULL;
-// 	}
-// }
 void	add_node(t_node **stack, int value)
 {
 	t_node	*new_node;
@@ -100,7 +69,6 @@ void	add_node(t_node **stack, int value)
 		return ;
 	new_node->value = value;
 	new_node->curr_position = 0;
-	new_node->final_index = 0;
 	new_node->push_cost = 0;
 	new_node->above_median = false;
 	new_node->cheapest = false;
